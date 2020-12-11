@@ -156,10 +156,10 @@ public class DataTypeDateTime64 implements IDataType {
     }
 
     @Override
-    public Object[] deserializeBinaryBulk(int rows, BinaryDeserializer deserializer) throws IOException {
-        Timestamp[] data = new Timestamp[rows];
-        for (int row = 0; row < rows; row++) {
-            data[row] = (Timestamp) deserializeBinary(deserializer);
+    public Object[] deserializeBinaryBulk(int rowCnt, BinaryDeserializer deserializer) throws IOException {
+        Timestamp[] data = new Timestamp[rowCnt];
+        for (int i = 0; i < rowCnt; i++) {
+            data[i] = (Timestamp) deserializeBinary(deserializer);
         }
         return data;
     }

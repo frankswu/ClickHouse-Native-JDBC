@@ -119,10 +119,10 @@ public class DataTypeDateTime implements IDataType {
     }
 
     @Override
-    public Object[] deserializeBinaryBulk(int rows, BinaryDeserializer deserializer) throws SQLException, IOException {
-        Timestamp[] data = new Timestamp[rows];
-        for (int row = 0; row < rows; row++) {
-            data[row] = new Timestamp(deserializer.readInt() * 1000L);
+    public Object[] deserializeBinaryBulk(int rowCnt, BinaryDeserializer deserializer) throws SQLException, IOException {
+        Timestamp[] data = new Timestamp[rowCnt];
+        for (int i = 0; i < rowCnt; i++) {
+            data[i] = new Timestamp(deserializer.readInt() * 1000L);
         }
         return data;
     }
