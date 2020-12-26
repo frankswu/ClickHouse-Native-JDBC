@@ -41,7 +41,7 @@ public interface IDataType<T> {
 
     int sqlTypeId();
 
-    Class<T> javaTypeClass();
+    Class<? extends T> javaTypeClass();
 
     boolean nullable();
 
